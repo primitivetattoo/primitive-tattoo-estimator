@@ -1,0 +1,90 @@
+/* PTB Estimator Admin Styles */
+
+.ptb-admin-wrap {
+    max-width: 900px;
+}
+
+.ptb-admin-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 16px 0;
+}
+
+.ptb-admin-card h2 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+    border: none;
+}
+
+.ptb-admin-card .form-table th {
+    width: 160px;
+    padding: 12px 10px 12px 0;
+}
+
+.ptb-admin-card .form-table td {
+    padding: 8px 0;
+}
+
+/* Pricing tables */
+.ptb-pricing-table {
+    border-collapse: collapse;
+}
+
+.ptb-pricing-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 12px;
+    background: #f6f7f7;
+}
+
+.ptb-pricing-table td {
+    padding: 6px 12px;
+    vertical-align: middle;
+}
+
+.ptb-pricing-table tbody tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Input sizing */
+.ptb-input-icon {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.ptb-input-name {
+    width: 140px;
+}
+
+.ptb-input-desc {
+    width: 260px;
+}
+
+.ptb-input-price {
+    width: 140px;
+}
+
+.ptb-input-mult {
+    width: 90px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .ptb-admin-card .form-table th {
+        width: auto;
+    }
+
+    .ptb-pricing-table {
+        font-size: 12px;
+    }
+
+    .ptb-input-name { width: 100px; }
+    .ptb-input-desc { width: 160px; }
+    .ptb-input-price { width: 100px; }
+}

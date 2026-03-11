@@ -1,0 +1,375 @@
+/* ==============================================
+   Primitive Tattoo Bali — Price Estimator
+   Font vars: --ptb-font-heading, --ptb-font-body
+   Set via plugin settings or Elementor widget.
+   Falls back to inherit (theme fonts) when unset.
+   ============================================== */
+
+.ptb-estimator-wrap *,
+.ptb-estimator-wrap *::before,
+.ptb-estimator-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.ptb-estimator-wrap {
+    --ptb-font-heading: inherit;
+    --ptb-font-body: inherit;
+    width: 100%;
+    padding: 40px 16px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--ptb-font-body);
+}
+
+/* ---- Header ---- */
+.ptb-header {
+    text-align: center;
+    margin-bottom: 36px;
+    max-width: 560px;
+    width: 100%;
+}
+
+.ptb-eyebrow {
+    font-family: var(--ptb-font-body);
+    letter-spacing: 0.3em;
+    font-size: 13px;
+    color: #b8986a;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.ptb-title {
+    font-family: var(--ptb-font-heading);
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+.ptb-subtitle {
+    font-family: var(--ptb-font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.6;
+}
+
+/* ---- Promo Banner ---- */
+.ptb-promo-banner {
+    width: 100%;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #1e1608 0%, #2a1f0a 100%);
+    border: 1px solid #b8986a;
+    border-radius: 4px;
+    padding: 20px 24px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    transition: opacity 0.2s;
+}
+
+.ptb-promo-banner:hover { opacity: 0.9; }
+
+.ptb-promo-glow {
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(184,152,106,0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.ptb-promo-banner-label {
+    font-family: var(--ptb-font-body);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #b8986a;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.ptb-promo-banner-title {
+    font-family: var(--ptb-font-heading);
+    font-size: 22px;
+    font-weight: 500;
+    color: #f5efe6;
+    margin-bottom: 3px;
+}
+
+.ptb-promo-banner-sub {
+    font-family: var(--ptb-font-body);
+    font-size: 15px;
+    color: #9a8868;
+}
+
+.ptb-promo-banner-price {
+    font-family: var(--ptb-font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    color: #b8986a;
+    text-align: right;
+    line-height: 1.2;
+}
+
+.ptb-promo-banner-cta {
+    font-family: var(--ptb-font-body);
+    font-size: 12px;
+    color: #6a5a3a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: right;
+    margin-top: 3px;
+}
+
+/* ---- Promo Result Card ---- */
+.ptb-promo-result {
+    width: 100%;
+    margin-bottom: 24px;
+    border: 1px solid #b8986a;
+    border-radius: 4px;
+    padding: 32px 28px;
+    text-align: center;
+    animation: ptbFadeUp 0.4s ease;
+}
+
+.ptb-promo-result-price {
+    font-family: var(--ptb-font-heading);
+    font-size: 40px;
+    font-weight: 300;
+    color: #b8986a;
+    letter-spacing: -0.02em;
+    margin: 14px 0 6px;
+}
+
+/* ---- Divider ---- */
+.ptb-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.ptb-divider-line {
+    flex: 1;
+    height: 1px;
+    opacity: 0.15;
+    background: currentColor;
+}
+
+.ptb-divider-text {
+    font-family: var(--ptb-font-body);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.35;
+}
+
+/* ---- Progress Dots ---- */
+.ptb-progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 36px;
+    align-items: center;
+}
+
+.ptb-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ptb-dot--inactive  { border-color: #ccc; opacity: 0.5; }
+.ptb-dot--done      { border-color: #b8986a; color: #b8986a; background: rgba(184,152,106,0.08); }
+.ptb-dot--active    { background: #b8986a; color: #000; border-color: #b8986a; }
+
+.ptb-dot-line {
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.12;
+    transition: opacity 0.2s;
+}
+.ptb-dot-line--done { opacity: 0.35; }
+
+/* ---- Step Container ---- */
+.ptb-step {
+    width: 100%;
+    animation: ptbFadeUp 0.3s ease;
+}
+
+.ptb-question {
+    font-family: var(--ptb-font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    opacity: 0.9;
+}
+
+/* ---- Grids ---- */
+.ptb-grid-styles   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.ptb-grid-sizes    { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ptb-grid-places   { display: grid; grid-template-columns: repeat(auto-fill, minmax(125px, 1fr)); gap: 8px; }
+.ptb-grid-complex  { display: flex; flex-direction: column; gap: 10px; }
+
+/* ---- Option Cards ---- */
+.ptb-card {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 20px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s ease;
+    background: transparent;
+}
+
+.ptb-card:hover {
+    border-color: rgba(184,152,106,0.5);
+    background: rgba(184,152,106,0.04);
+}
+
+.ptb-card--active {
+    border-color: #b8986a;
+    background: rgba(184,152,106,0.08);
+    outline: 1px solid rgba(184,152,106,0.25);
+    transform: scale(1.02);
+}
+
+.ptb-card--horizontal { text-align: left; padding: 18px 22px; }
+.ptb-card--compact    { padding: 14px 16px; }
+
+.ptb-card-icon  {
+    font-size: 22px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(184,152,106,0.1);
+    color: #b8986a;
+}
+.ptb-card-name  { font-family: var(--ptb-font-heading); font-size: 18px; font-weight: 600; display: block; margin-bottom: 6px; }
+.ptb-card-sub   { font-family: var(--ptb-font-body); font-size: 15px; opacity: 0.45; margin-top: 0; display: block; }
+
+/* ---- Result Card ---- */
+.ptb-result {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 32px 28px;
+    text-align: center;
+    margin-top: 20px;
+    animation: ptbFadeUp 0.5s ease;
+    width: 100%;
+}
+
+.ptb-result-eyebrow {
+    font-family: var(--ptb-font-body);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: #b8986a;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.ptb-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.ptb-pill {
+    font-family: var(--ptb-font-body);
+    border: 1px solid rgba(184,152,106,0.25);
+    border-radius: 2px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: #b8986a;
+    letter-spacing: 0.08em;
+    background: rgba(184,152,106,0.05);
+}
+
+.ptb-result-price {
+    font-family: var(--ptb-font-heading);
+    font-size: clamp(32px, 7vw, 54px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.ptb-result-disclaimer {
+    font-family: var(--ptb-font-body);
+    font-size: 13px;
+    opacity: 0.3;
+    margin-bottom: 26px;
+}
+
+/* ---- Buttons ---- */
+.ptb-btn-gold {
+    display: inline-block;
+    background: #b8986a;
+    color: #000 !important;
+    text-decoration: none !important;
+    padding: 14px 36px;
+    font-family: var(--ptb-font-body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.ptb-btn-gold:hover { background: #caa97a; color: #000 !important; }
+
+.ptb-btn-ghost {
+    background: none;
+    border: none;
+    font-family: var(--ptb-font-body);
+    font-size: 14px;
+    opacity: 0.35;
+    cursor: pointer;
+    text-decoration: underline;
+    letter-spacing: 0.05em;
+    color: inherit;
+}
+
+.ptb-btn-ghost:hover { opacity: 0.6; }
+
+/* ---- Animations ---- */
+@keyframes ptbFadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 480px) {
+    .ptb-grid-styles  { grid-template-columns: repeat(2, 1fr); }
+    .ptb-grid-sizes   { grid-template-columns: 1fr 1fr; }
+    .ptb-promo-banner { flex-direction: column; align-items: flex-start; }
+    .ptb-promo-banner-price, .ptb-promo-banner-cta { text-align: left; }
+}
