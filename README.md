@@ -2,7 +2,7 @@
 
 A WordPress plugin that gives tattoo studio visitors an instant price estimate through an interactive 4-step wizard. Built for [Primitive Tattoo Bali](https://primitivetattoo.com).
 
-**[See it live](https://primitivetattoobali.com/tattoo-price-estimator-bali/)**
+**[Live Demo — Tattoo Price Estimator](https://primitivetattoobali.com/tattoo-price-estimator-bali/)**
 
 ![WordPress](https://img.shields.io/badge/WordPress-5.8%2B-blue?logo=wordpress)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple?logo=php)
